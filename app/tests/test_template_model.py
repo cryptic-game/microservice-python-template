@@ -32,7 +32,7 @@ class TestWalletModel(TestCase):
         mock.wrapper.session.add.assert_called_with(actual_result)
         mock.wrapper.session.commit.assert_called_with()
 
-    def test__model__wallet__create__different_uuid(self):
+    def test__model__template__create__different_uuid(self):
         first_element = Template.create().uuid
         second_element = Template.create().uuid
         self.assertNotEqual(first_element, second_element)
