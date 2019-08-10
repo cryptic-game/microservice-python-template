@@ -1,6 +1,5 @@
 <!-- change microservice name and links in badges -->
-<!-- also you need to enable the new repository on coveralls.io -->
-# microservice-python-template [![Build Status](https://travis-ci.com/cryptic-game/microservice-python-template.svg?branch=master)](https://travis-ci.com/cryptic-game/microservice-python-template) [![Coverage Status](https://coveralls.io/repos/github/cryptic-game/microservice-python-template/badge.svg?branch=master)](https://coveralls.io/github/cryptic-game/microservice-python-template?branch=master)
+# microservice-python-template [![Build Status](https://travis-ci.org/cryptic-game/microservice-python-template.svg?branch=master)](https://travis-ci.org/cryptic-game/microservice-python-template) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=cryptic-game_microservice-python-template&metric=coverage)](https://sonarcloud.io/dashboard?id=cryptic-game_microservice-python-template)
 
 A template for new python microservices
 
