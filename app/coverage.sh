@@ -2,7 +2,7 @@
 
 if coverage run -m unittest discover -v tests
 then
-  coverage xml
+    coverage xml
 	coverage report
 	coverage erase
 else
