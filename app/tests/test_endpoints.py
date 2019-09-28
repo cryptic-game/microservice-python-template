@@ -19,3 +19,9 @@ class TestWallet(TestCase):
         actual_result = endpoints.info({"message": "hello world"}, "test-ms")
 
         self.assertEqual(expected_result, actual_result)
+
+    def test__ms_endpoint__delete_user(self):
+        expected_result = {"success": True}
+        actual_result = endpoints.delete_user({"user": "user-123"}, "server")
+
+        self.assertEqual(expected_result, actual_result)
