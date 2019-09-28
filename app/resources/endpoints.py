@@ -10,3 +10,8 @@ def echo(data: dict, user: str) -> dict:
 @m.microservice_endpoint(path=["info"])
 def info(data: dict, microservice: str) -> dict:
     return {"message": data["message"], "microservice": microservice}
+
+
+@m.microservice_endpoint(path=["delete_user"])
+def delete_user(data: dict, microservice: str) -> dict:
+    return {"success": True}

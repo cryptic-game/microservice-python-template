@@ -46,7 +46,7 @@ class TestApp(TestCase):
 
         expected_user_endpoints = [(["echo"], scheme_echo)]
 
-        expected_ms_endpoints = [["info"]]
+        expected_ms_endpoints = [["info"], ["delete_user"]]
 
         for path, requires in expected_user_endpoints:
             self.assertIn((path, requires), registered_user_endpoints)
