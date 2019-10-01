@@ -2,6 +2,7 @@ from importlib import machinery, util
 from unittest import TestCase
 
 from mock.mock_loader import mock
+from resources import endpoints
 from schemes import scheme_echo
 
 
@@ -44,19 +45,21 @@ class TestApp(TestCase):
         registered_user_endpoints = mock.user_endpoints.copy()
         registered_ms_endpoints = mock.ms_endpoints.copy()
 
-        expected_user_endpoints = [(["echo"], scheme_echo)]
+        expected_user_endpoints = [(["echo"], scheme_echo, endpoints.echo)]
 
-        expected_ms_endpoints = [["info"], ["delete_user"]]
+        expected_ms_endpoints = [(["info"], endpoints.info), (["delete_user"], endpoints.delete_user)]
 
-        for path, requires in expected_user_endpoints:
+        for path, requires, func in expected_user_endpoints:
             self.assertIn((path, requires), registered_user_endpoints)
             registered_user_endpoints.remove((path, requires))
             self.assertIn(mock.user_endpoint_handlers[tuple(path)], elements)
+            self.assertEqual(func, mock.user_endpoint_handlers[tuple(path)])
 
-        for path in expected_ms_endpoints:
+        for path, func in expected_ms_endpoints:
             self.assertIn(path, registered_ms_endpoints)
             registered_ms_endpoints.remove(path)
             self.assertIn(mock.ms_endpoint_handlers[tuple(path)], elements)
+            self.assertEqual(func, mock.ms_endpoint_handlers[tuple(path)])
 
         self.assertFalse(registered_user_endpoints)
         self.assertFalse(registered_ms_endpoints)
